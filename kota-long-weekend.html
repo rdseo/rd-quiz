@@ -1,187 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTKBE7Y3DK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JTKBE7Y3DK');
-</script>
-  <!-- Google tag (gtag.js) end -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>What KOTA Are KAMU?</title>
+  <title>Kuis Liburan – Kamu Kota Mana?</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTKBE7Y3DK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JTKBE7Y3DK'); // Ganti dengan GA4 ID kamu
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f4f4f4;
-    }
-
-    .quiz-wrapper {
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .quiz-wrapper h2 {
-      text-align: center;
+      background: #f4f4f4;
+      padding: 2rem;
       color: #333;
     }
-
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
     }
-
-    .question h3 {
-      margin-bottom: 10px;
-      color: #444;
+    .question p {
+      font-weight: bold;
     }
-
     label {
       display: block;
-      margin-bottom: 8px;
-    }
-
-    .quiz-button {
-      display: block;
-      margin: 30px auto 0;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #ff5a5f;
-      color: white;
-      border: none;
-      border-radius: 5px;
+      margin: 5px 0;
       cursor: pointer;
     }
-
-    .quiz-button:hover {
-      background-color: #e14c4f;
+    button {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.75rem 2rem;
+      background: #e63946;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
     }
-
-    .modal {
+    button:hover {
+      background: #d62828;
+    }
+    .popup {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
+      top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
-
-    .modal-content {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 400px;
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    .close-btn {
-      margin-top: 20px;
-      padding: 8px 16px;
-      background-color: #ff5a5f;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .close-btn:hover {
-      background-color: #d9474c;
+      max-width: 400px;
     }
   </style>
 </head>
 <body>
-  <div class="quiz-wrapper">
-    <h2>What KOTA Are KAMU?</h2>
-
-    <form id="quizForm">
+  <div class="container">
+    <h1>Kamu Kota Liburan yang Mana?</h1>
+    <form id="quiz">
+      <!-- Repeat for each question -->
       <div class="question">
-        <h3>1. What’s KAMUr ideal weekend?</h3>
-        <label><input type="radio" name="q1" value="newyork"> Exploring art galleries and rooftop bars</label>
-        <label><input type="radio" name="q1" value="tokyo"> Gaming, anime, and high-tech shopping</label>
-        <label><input type="radio" name="q1" value="paris"> Sipping coffee at a café and visiting museums</label>
-        <label><input type="radio" name="q1" value="bali"> Surfing and relaxing on the beach</label>
+        <p>1. Budget kamu buat liburan ini kira-kira…</p>
+        <label><input type="radio" name="q1" value="Jakarta"> Di bawah 500 ribu</label>
+        <label><input type="radio" name="q1" value="Bandung,Yogyakarta"> 500 ribu – 1 juta</label>
+        <label><input type="radio" name="q1" value="Semarang,Malang"> 1 – 2 juta</label>
+        <label><input type="radio" name="q1" value="Jakarta,Bandung,Yogyakarta,Semarang,Malang"> Unlimited, cuan lagi bagus nih</label>
       </div>
 
       <div class="question">
-        <h3>2. Pick a drink:</h3>
-        <label><input type="radio" name="q2" value="newyork"> Espresso Martini</label>
-        <label><input type="radio" name="q2" value="tokyo"> Matcha Latte</label>
-        <label><input type="radio" name="q2" value="paris"> Red Wine</label>
-        <label><input type="radio" name="q2" value="bali"> Coconut Water</label>
+        <p>2. Kamu dapet jatah libur berapa hari?</p>
+        <label><input type="radio" name="q2" value="Jakarta,Bandung"> Cuma 2 hari, sabar ini ujian</label>
+        <label><input type="radio" name="q2" value="Bandung"> 3 hari, cukup lah buat healing tipis-tipis</label>
+        <label><input type="radio" name="q2" value="Yogyakarta,Semarang"> 4 hari, lumayan bisa explore</label>
+        <label><input type="radio" name="q2" value="Yogyakarta,Malang"> 5 hari ke atas, waktunya kabur dari realita</label>
       </div>
 
       <div class="question">
-        <h3>3. What’s KAMUr fashion style?</h3>
-        <label><input type="radio" name="q3" value="newyork"> Chic and edgy</label>
-        <label><input type="radio" name="q3" value="tokyo"> Bold and experimental</label>
-        <label><input type="radio" name="q3" value="paris"> Classic and elegant</label>
-        <label><input type="radio" name="q3" value="bali"> Casual and comfy</label>
+        <p>3. Pilih satu hewan, jangan banyak mikir:</p>
+        <label><input type="radio" name="q3" value="Bandung"> Kucing</label>
+        <label><input type="radio" name="q3" value="Jakarta,Semarang"> Anjing</label>
+        <label><input type="radio" name="q3" value="Yogyakarta"> Cendrawasih</label>
+        <label><input type="radio" name="q3" value="Malang"> Lumba-lumba</label>
       </div>
+
+      <div class="question">
+        <p>4. Siapa partner liburan kamu kali ini?</p>
+        <label><input type="radio" name="q4" value="Solo"> Diri sendiri</label>
+        <label><input type="radio" name="q4" value="Teman"> Teman-teman</label>
+        <label><input type="radio" name="q4" value="Keluarga"> Keluarga</label>
+        <label><input type="radio" name="q4" value="Pasangan"> Pasangan</label>
+      </div>
+
+      <div class="question">
+        <p>5. Pilih landscape yang vibes-nya lu banget!</p>
+        <label><input type="radio" name="q5" value="Yogyakarta,Malang"> Pantai</label>
+        <label><input type="radio" name="q5" value="Bandung"> Gunung</label>
+        <label><input type="radio" name="q5" value="Jakarta,Semarang,Bandung"> Kota</label>
+        <label><input type="radio" name="q5" value="Yogyakarta"> Desa/alam terbuka</label>
+      </div>
+
+      <div class="question">
+        <p>6. Kamu lebih suka tempat yang…</p>
+        <label><input type="radio" name="q6" value="Jakarta,Semarang,Bandung"> Ramai</label>
+        <label><input type="radio" name="q6" value="Yogyakarta,Malang"> Sepi</label>
+      </div>
+
+      <div class="question">
+        <p>7. Di antara pilihan alomani ini, yang mana paling “kamu banget”?</p>
+        <label><input type="radio" name="q7" value="Semarang"> Tungtung sahur</label>
+        <label><input type="radio" name="q7" value="Malang,Jakarta"> Ballerina cappucina</label>
+        <label><input type="radio" name="q7" value="Yogyakarta"> Cappuccino Assassiono</label>
+        <label><input type="radio" name="q7" value="Bandung"> Bombardillo Crocodillo</label>
+      </div>
+
+      <div class="question">
+        <p>8. Kalau liburan, kamu lebih suka kegiatan yang…</p>
+        <label><input type="radio" name="q8" value="Yogyakarta"> Santai</label>
+        <label><input type="radio" name="q8" value="Malang"> Aktif</label>
+        <label><input type="radio" name="q8" value="Bandung,Semarang"> Kulineran</label>
+        <label><input type="radio" name="q8" value="Jakarta"> Foto aesthetic</label>
+      </div>
+
+      <div class="question">
+        <p>9. Soundtrack liburan kamu?</p>
+        <label><input type="radio" name="q9" value="Malang"> “On The Way” – Sheila on 7</label>
+        <label><input type="radio" name="q9" value="Bandung"> “Lovely Day” – Bill Withers</label>
+        <label><input type="radio" name="q9" value="Yogyakarta"> “Adventure of a Lifetime” – Coldplay</label>
+        <label><input type="radio" name="q9" value="Jakarta,Semarang"> “Sunflower” – Post Malone</label>
+      </div>
+
+      <div class="question">
+        <p>10. Pilih idol favorit kamu:</p>
+        <label><input type="radio" name="q10" value="Jakarta"> BTS</label>
+        <label><input type="radio" name="q10" value="Bandung"> Blackpink</label>
+        <label><input type="radio" name="q10" value="Semarang,Malang"> NCT</label>
+        <label><input type="radio" name="q10" value="Yogyakarta"> IU</label>
+      </div>
+
+      <button type="button" onclick="calculateResult()">Lihat Hasil</button>
     </form>
-
-    <button class="quiz-button" onclick="calculateResult()">Find Out!</button>
   </div>
 
-  <div class="modal" id="resultModal">
-    <div class="modal-content">
-      <h2 id="KOTAName"></h2>
-      <p id="KOTADescription"></p>
-      <button class="close-btn" onclick="closeModal()">Close</button>
+  <div class="popup" id="resultPopup">
+    <div class="popup-content">
+      <p id="resultText"></p>
+      <button onclick="closePopup()">Tutup</button>
     </div>
   </div>
 
   <script>
-    const KOTANames = {
-      newyork: "New York",
-      tokyo: "Tokyo",
-      paris: "Paris",
-      bali: "Bali"
-    };
-
-    const KOTADescriptions = {
-      newyork: "KAMU're vibrant, fast-paced, and love the energy of the big KOTA!",
-      tokyo: "KAMU're futuristic, quirky, and always on the edge of something new.",
-      paris: "KAMU're romantic, stylish, and appreciate the finer things in life.",
-      bali: "KAMU're laid-back, nature-loving, and full of good vibes."
-    };
-
     function calculateResult() {
-      const answers = ["q1", "q2", "q3"];
-      const scores = { newyork: 0, tokyo: 0, paris: 0, bali: 0 };
+      const answers = document.querySelectorAll('input[type="radio"]:checked');
+      const scores = { Jakarta: 0, Bandung: 0, Yogyakarta: 0, Semarang: 0, Malang: 0 };
 
-      for (let q of answers) {
-        const choice = document.querySelector(`input[name="${q}"]:checked`);
-        if (choice) scores[choice.value]++;
+      if (answers.length < 10) {
+        alert("Isi semua pertanyaan dulu, ya!");
+        return;
       }
 
-      const maxKOTA = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+      answers.forEach((input) => {
+        const cities = input.value.split(',');
+        cities.forEach((city) => {
+          const c = city.trim();
+          if (scores[c] !== undefined) scores[c]++;
+        });
+      });
 
-      document.getElementById("KOTAName").textContent = `KAMU are: ${KOTANames[maxKOTA]}`;
-      document.getElementById("KOTADescription").textContent = KOTADescriptions[maxKOTA];
-      document.getElementById("resultModal").style.display = "flex";
+      const topCity = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+      document.getElementById('resultText').textContent = `Kamu cocoknya liburan ke: ${topCity}!`;
+
+      // Google Analytics tracking
+      gtag('event', 'quiz_result', {
+        'event_category': 'Quiz',
+        'event_label': topCity,
+        'value': scores[topCity]
+      });
+
+      document.getElementById('resultPopup').style.display = 'flex';
     }
 
-    function closeModal() {
-      document.getElementById("resultModal").style.display = "none";
+    function closePopup() {
+      document.getElementById('resultPopup').style.display = 'none';
     }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById("resultModal");
-      if (event.target === modal) {
-        closeModal();
-      }
-    };
   </script>
 </body>
 </html>
