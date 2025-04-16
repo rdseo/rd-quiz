@@ -92,7 +92,7 @@
 </head>
 <body>
   <div class="quiz-wrapper">
-    <h2>What City Are You?</h2>
+    <h2>What KOTA Are You?</h2>
 
     <form id="quizForm">
       <div class="question">
@@ -125,22 +125,22 @@
 
   <div class="modal" id="resultModal">
     <div class="modal-content">
-      <h2 id="cityName"></h2>
-      <p id="cityDescription"></p>
+      <h2 id="KOTAName"></h2>
+      <p id="KOTADescription"></p>
       <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
   </div>
 
   <script>
-    const cityNames = {
+    const KOTANames = {
       newyork: "New York",
       tokyo: "Tokyo",
       paris: "Paris",
       bali: "Bali"
     };
 
-    const cityDescriptions = {
-      newyork: "You're vibrant, fast-paced, and love the energy of the big city!",
+    const KOTADescriptions = {
+      newyork: "You're vibrant, fast-paced, and love the energy of the big KOTA!",
       tokyo: "You're futuristic, quirky, and always on the edge of something new.",
       paris: "You're romantic, stylish, and appreciate the finer things in life.",
       bali: "You're laid-back, nature-loving, and full of good vibes."
@@ -155,10 +155,10 @@
         if (choice) scores[choice.value]++;
       }
 
-      const maxCity = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+      const maxKOTA = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
 
-      document.getElementById("cityName").textContent = `You are: ${cityNames[maxCity]}`;
-      document.getElementById("cityDescription").textContent = cityDescriptions[maxCity];
+      document.getElementById("KOTAName").textContent = `You are: ${KOTANames[maxKOTA]}`;
+      document.getElementById("KOTADescription").textContent = KOTADescriptions[maxKOTA];
       document.getElementById("resultModal").style.display = "flex";
     }
 
